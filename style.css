@@ -5,7 +5,11 @@
     box-sizing: border-box;
     font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   }
-  
+ 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     color: #333; /* 文字が見えやすいように基本色をダークグレーに */
     background-color: #fff;
@@ -19,6 +23,11 @@
     padding: 0 24px;
   }
   
+  /* ヘッダーでタイトルが隠れないように調整（ヘッダーの高さ分） */
+section {
+    scroll-margin-top: 70px;
+  }
+
   /* 共通見出しラベル（緑の小さい枠） */
   .section-label, .about-label, .sub-title, .flow-label {
     display: block; /* タイトルの上に配置 */
