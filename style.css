@@ -324,91 +324,108 @@
   }
   
   /* ===== Flow ===== */
-/* ===== Flow ===== */
+/* ===== Flow Section (PC & Mobile 共通) ===== */
 .flow {
     background: #3b434a;
     color: #e5e7eb;
     padding: 100px 0;
   }
-  
+  .flow-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff !important; /* 強制的に白に固定 */
+    text-align: center;
+    margin-bottom: 60px;
+  }
   .flow-history {
     max-width: 800px;
-  }
-  
-  .flow-title {
-    color: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
   }
   
   .flow-item {
     display: flex;
-    gap: 24px;
-    margin-bottom: 40px;
-    text-align: left;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 50px;
+    position: relative; /* 線の基準 */
   }
   
-  /* 最後のアイテムの余白調整 */
-  .flow-item:last-child {
-    margin-bottom: 0;
+  /* 縦線：STEP枠の右端あたりに配置 */
+  .flow-item::before {
+    content: "";
+    position: absolute;
+    left: 110px; /* STEP枠の幅に合わせて固定 */
+    top: 20px;
+    bottom: -50px;
+    width: 1px;
+    background: #0f9d58;
+  }
+  
+  .flow-item:last-child::before {
+    display: none;
   }
   
   .flow-date {
     background: #0f9d58;
     color: #fff;
-    padding: 6px 12px;
+    padding: 8px 0;
     border-radius: 6px;
     font-size: 13px;
     font-weight: bold;
-    min-width: 90px;
+    width: 90px; /* 固定幅 */
     text-align: center;
-    height: fit-content;
+    flex-shrink: 0; /* 潰れないように固定 */
+    z-index: 2;
   }
   
   .flow-content {
     position: relative;
-    padding-left: 32px;
+    padding-left: 45px; /* 丸印と線の右側にテキストを置くための余白 */
+    flex: 1;
   }
   
-  /* 縦線：すべてのアイテムに表示し、最後だけ高さを調整 */
-  .flow-content::before {
-    content: "";
+/* 丸印：アニメーション設定を追加 */
+.flow-dot {
     position: absolute;
-    left: 7px;
-    top: 10px; /* 丸の真ん中からスタート */
-    bottom: -50px; /* 次のアイテムまで伸ばす */
-    width: 1px;
-    background: #0f9d58;
-  }
-  
-  /* 最後のステップだけ線を消す */
-  .flow-item:last-child .flow-content::before {
-    display: none;
-  }
-  
-  .flow-dot {
-    position: absolute;
-    left: 0;
-    top: 6px;
-    width: 16px;
-    height: 16px;
+    left: -5px; 
+    top: 10px;
+    width: 12px;
+    height: 12px;
     background: #0f9d58;
     border-radius: 50%;
-    z-index: 2;
-    /* アニメーションの設定 */
+    z-index: 3;
+    border: 2px solid #3b434a;
+    
+    /* ↓ ここからアニメーションの設定を追加 ↓ */
     transition: all 0.3s ease-out; 
     cursor: pointer;
   }
   
-  /* ホバー（マウスを乗せた時）の動き */
+  /* ホバー（マウスを乗せた時）の動きを復活 */
   .flow-dot:hover {
-    transform: scale(1.5); /* 1.5倍に大きくする */
+    transform: scale(1.8); /* 1.8倍に大きくする */
     background: #14cf74;   /* 少し明るい緑にする */
-    box-shadow: 0 0 10px rgba(15, 157, 88, 0.8); /* 光らせる */
-  }
-  
+    box-shadow: 0 0 12px rgba(20, 207, 116, 0.8); /* 外側に光を出す */
+  }  
   .flow-text {
     font-size: 16px;
     line-height: 1.6;
-  }  
+    text-align: left;
+    padding-top: 4px; /* STEP枠の高さと合わせる微調整 */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /* ===== Environmental Commitment ===== */
   .env-commitment {
     padding: 100px 0;
@@ -749,11 +766,28 @@
       gap: 4px;
     }
   
-    .flow-item {
-      flex-direction: column;
-      gap: 12px;
-    }
-    
+  /* スマホでも縦並びにせず、横の関係を維持する */
+  .flow-item {
+    gap: 15px;
+  }
+  
+  .flow-date {
+    width: 70px; /* スマホでは枠を少し小さく */
+    font-size: 11px;
+  }
+
+  .flow-item::before {
+    left: 85px; /* スマホの枠幅に合わせて線を左に寄せる */
+  }
+
+  .flow-content {
+    padding-left: 35px;
+  }
+
+  .flow-text {
+    font-size: 14px;
+  }
+  
     .map-content {
         grid-template-columns: 1fr;
       }
