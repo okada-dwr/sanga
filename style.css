@@ -1,0 +1,782 @@
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  }
+  
+  body {
+    color: #333; /* 文字が見えやすいように基本色をダークグレーに */
+    background-color: #fff;
+    line-height: 1.6;
+  }
+  
+  /* 共通コンテナ */
+  .container, .about-inner, .services-inner, .flow-history {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* 共通見出しラベル（緑の小さい枠） */
+  .section-label, .about-label, .sub-title, .flow-label {
+    display: block; /* タイトルの上に配置 */
+    width: fit-content;
+    margin: 0 auto 16px; /* 中央配置 */
+    background: #e6f5ec;
+    color: #3aa66b;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-align: center;
+    background: rgba(58, 166, 107, 0.15);
+  }
+  
+  /* 共通セクションタイトル */
+  .section-title, .about-text h2, .flow-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  
+  /* ===== Header ===== */
+  .header {
+    background: #fff;
+    height: 70px;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+  }
+  
+  .nav a {
+    margin: 0 14px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .nav a:hover {
+    color: #3aa66b;
+  }
+  
+  .tel {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+  }
+  
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    height: calc(100vh - 70px);
+    background: url("img/hero-excavator.png") center / cover no-repeat;
+    color: #fff; /* Hero内は白文字 */
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(0,0,0,0.6) 0%,
+      rgba(0,0,0,0.3) 50%,
+      rgba(0,0,0,0.1) 100%
+    );
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 120px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+  }  
+/* ===== Hero Label 修正 ===== */
+.hero-label {
+    display: inline-block;
+    /* 背景を半透明の緑に設定 */
+    background: rgba(48, 185, 110, 0.2); 
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    width: fit-content;
+    font-weight: bold;
+    
+    /* 左側に緑の太い線を付ける */
+    border-left: 4px solid #3aa66b;
+    
+    /* 少し角を丸くする場合（お好みで） */
+    border-radius: 0 4px 4px 0;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: #3aa66b;
+    color: #fff;
+    padding: 16px 40px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: opacity 0.3s;
+    width: fit-content;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* ===== About ===== */
+  .about {
+    padding: 100px 0;
+    background: #fff;
+  }
+  
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  .about-label {
+    margin: 0 0 20px 0; /* Aboutのみ左寄せ */
+  }
+  
+  .about-text h2 {
+    text-align: left;
+  }
+  
+  .about-text p {
+    font-size: 15px;
+    margin-bottom: 16px;
+    color: #555;
+  }
+  
+  .about-strong {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #3aa66b;
+  }
+  
+  .about-image {
+    position: relative;
+    padding: 20px;
+  }
+  
+  .about-image .bg-square {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #e6f5ec;
+    border-radius: 6px;
+    z-index: 1;
+  }
+  
+  .about-image .bg-left-bottom {
+    bottom: 0;
+    left: 0;
+  }
+  
+  .about-image .bg-right-top {
+    top: 0;
+    right: 0;
+    background: #fff;
+    border: 3px solid #e6f5ec;
+  }
+  
+  .about-image img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+    border-radius: 6px;
+    clip-path: polygon(40px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40px);
+  }
+  
+  /* ===== Services ===== */
+  .services {
+    padding: 100px 0;
+    background: #f7f7f6;
+  }
+  
+  .section-sub {
+    text-align: center;
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 48px;
+  }
+  
+  .services-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  
+  .service-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  }
+  
+  .service-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #3aa66b;
+    border-bottom: 2px solid #e6f5ec;
+    padding-bottom: 10px;
+  }
+  
+  .service-card ul {
+    list-style: none;
+  }
+  
+  .service-card li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 1.5em;
+  }
+  
+  .service-card li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #3aa66b;
+  }
+  
+  .service-info {
+    background: #fff;
+    border: 2px solid #d9efe3;
+    border-radius: 16px;
+    padding: 40px;
+  }
+  
+  .info-title {
+    font-weight: bold;
+    color: #3aa66b;
+    margin-bottom: 24px;
+    font-size: 18px;
+  }
+  
+  .info-list div {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .info-list div:last-child {
+    border-bottom: none;
+  }
+  
+  .info-list dt {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .info-list dd {
+    font-size: 15px;
+    color: #555;
+  }
+  
+  /* ===== Flow ===== */
+/* ===== Flow ===== */
+.flow {
+    background: #3b434a;
+    color: #e5e7eb;
+    padding: 100px 0;
+  }
+  
+  .flow-history {
+    max-width: 800px;
+  }
+  
+  .flow-title {
+    color: #fff;
+  }
+  
+  .flow-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  /* 最後のアイテムの余白調整 */
+  .flow-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .flow-date {
+    background: #0f9d58;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    min-width: 90px;
+    text-align: center;
+    height: fit-content;
+  }
+  
+  .flow-content {
+    position: relative;
+    padding-left: 32px;
+  }
+  
+  /* 縦線：すべてのアイテムに表示し、最後だけ高さを調整 */
+  .flow-content::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 10px; /* 丸の真ん中からスタート */
+    bottom: -50px; /* 次のアイテムまで伸ばす */
+    width: 1px;
+    background: #0f9d58;
+  }
+  
+  /* 最後のステップだけ線を消す */
+  .flow-item:last-child .flow-content::before {
+    display: none;
+  }
+  
+  .flow-dot {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #0f9d58;
+    border-radius: 50%;
+    z-index: 2;
+    /* アニメーションの設定 */
+    transition: all 0.3s ease-out; 
+    cursor: pointer;
+  }
+  
+  /* ホバー（マウスを乗せた時）の動き */
+  .flow-dot:hover {
+    transform: scale(1.5); /* 1.5倍に大きくする */
+    background: #14cf74;   /* 少し明るい緑にする */
+    box-shadow: 0 0 10px rgba(15, 157, 88, 0.8); /* 光らせる */
+  }
+  
+  .flow-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }  
+  /* ===== Environmental Commitment ===== */
+  .env-commitment {
+    padding: 100px 0;
+    background-color: #f9fbf9;
+  }
+  
+  .commitment-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 60px;
+  }
+  
+  .commitment-item.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .commitment-image {
+    flex: 1;
+  }
+  
+  .commitment-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .commitment-text {
+    flex: 1;
+  }
+  
+  .commitment-text h3 {
+    font-size: 24px;
+    color: #2e7d32;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .commitment-text p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+/* ===== Map Section ===== */
+.map-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+  }
+  
+  .map-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右2カラム */
+    gap: 40px;
+    align-items: start;
+  }
+  
+  /* 画像とGoogleマップを囲むボックスのサイズを統一 */
+  .map-illust, .map-google {
+    width: 100%;
+    height: 400px; /* ここで高さを自由に設定（左右共通になります） */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+  }
+  
+  /* 中の画像が枠いっぱいに広がるように設定 */
+  .map-illust img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 縦横比を保ちつつ枠を埋める */
+    display: block;
+  }
+  
+  /* Googleマップのiframeも枠いっぱいに */
+  .map-google iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .map-label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    display: block;
+  }
+  
+  .map-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 12px;
+  }
+  
+
+
+
+
+  /* ===== Contact Section ===== */
+  .contact-section {
+    position: relative;
+    padding: 120px 0;
+    /* 背景画像：画像の上にオーバーレイが乗ります */
+    background: url("img/contact-worker.png") center / cover no-repeat;
+    color: #fff;
+    text-align: left;
+  }
+  
+  .contact-overlay {
+    position: absolute;
+    inset: 0;
+    /* 左から右へ：左端 80%の黒 → 中央 40%の黒 → 右端 ほぼ透明(10%) */
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+    z-index: 1;
+  }
+  
+  .contact-content {
+    position: relative;
+    z-index: 2; /* オーバーレイより上に表示 */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .contact-content h2 {
+    font-size: 40px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    font-weight: bold;
+  }
+  
+  .contact-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  
+  .btn-large {
+    display: inline-block;
+    background: #3aa66b;
+    color: #fff;
+    padding: 18px 50px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: opacity 0.1s;
+  }
+  
+  .btn-large:hover {
+    opacity: 0.9;
+  }  
+  /* ===== Footer ===== */
+  .footer {
+    background: #4a555c; /* 画像に近い濃いグレー */
+    color: #fff;
+    padding: 80px 0 30px;
+    border-top: 5px solid #3aa66b;
+  }
+  
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer-info h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-info p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  .footer-links h4, .footer-business h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+  }
+  
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .footer-links a:hover {
+    opacity: 1;
+  }
+  
+  .footer-business p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+  
+  .footer-bottom {
+    padding-top: 30px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 13px;
+    opacity: 0.6;
+  }
+  
+
+
+
+
+  /* ===== Soil Sales ===== */
+.soil-sales {
+    padding: 100px 0;
+    background-color: #f9fafb; /* 薄いグレーでSERVICESと変化をつける */
+  }
+  
+  .soil-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .soil-text h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  /* テキスト横の細い緑線 */
+  .soil-text h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: #3aa66b;
+    border-radius: 2px;
+  }
+  
+  .soil-text p {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .soil-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  
+  .soil-features li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #444;
+  }
+  
+  /* チェックマークの装飾 */
+  .soil-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3aa66b;
+    font-weight: bold;
+  }
+  
+  .soil-note {
+    background: #fff;
+    padding: 15px;
+    border: 1px dashed #3aa66b;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .soil-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+
+
+
+  /* ===== Responsive ===== */
+  @media screen and (max-width: 900px) {
+    .section-title, .about-text h2 {
+      font-size: 26px;
+    }
+  
+    .about-inner, .services-cards, .map-content, .commitment-item, .commitment-item.reverse {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+      gap: 32px;
+    }
+  
+    .about-text h2, .about-text p {
+      text-align: center;
+    }
+    
+    .about-label {
+      margin: 0 auto 20px;
+    }
+  
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .info-list div {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  
+    .flow-item {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .map-content {
+        grid-template-columns: 1fr;
+      }
+      .map-illust, .map-google {
+        height: 300px; /* スマホでは高さを少し抑える */
+      }
+
+      
+    .contact-content h2 {
+        font-size: 30px;
+      }
+      
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      
+    .soil-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .soil-image {
+        order: -1; /* スマホでは画像を先に見せる */
+      }
+  }
