@@ -22,7 +22,7 @@
     margin: 0 auto;
     padding: 0 24px;
   }
-  
+
   /* ヘッダーでタイトルが隠れないように調整（ヘッダーの高さ分） */
 section {
     scroll-margin-top: 70px;
@@ -53,50 +53,60 @@ section {
     line-height: 1.4;
   }
   
-  /* ===== Header ===== */
-  .header {
+/* ===== Header 基本設定 ===== */
+.header {
     background: #fff;
-    height: 70px;
-    border-bottom: 1px solid #eee;
+    height: 80px;
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #eee;
   }
-  
   .header-inner {
+    max-width: 1400px;
     height: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
   }
-  
-  .logo {
+  .logo a {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     color: #000;
-  }
-  
-  .nav a {
-    margin: 0 14px;
-    font-size: 14px;
-    color: #333;
     text-decoration: none;
-    transition: color 0.3s;
   }
-  
+  .tel a {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+  }
+  .nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  /* チェックボックスと閉じる用ラベルを隠す */
+  .nav-unshown { display: none; }
+    
   .nav a:hover {
     color: #3aa66b;
   }
   
   .tel {
+    flex: 0 0 auto; /* 幅を固定 */
     font-weight: bold;
-    font-size: 16px;
+    font-size: 24px;
     color: #000;
+    display: flex;
+    align-items: center;
   }
   
+
   /* ===== Hero ===== */
   .hero {
     position: relative;
@@ -438,7 +448,7 @@ section {
   /* ===== Environmental Commitment ===== */
   .env-commitment {
     padding: 100px 0;
-    background-color: #f9fbf9;
+    background-color: #ffffff;
   }
   
   .commitment-item {
@@ -482,7 +492,7 @@ section {
 /* ===== Map Section ===== */
 .map-section {
     padding: 100px 0;
-    background-color: #ffffff;
+    background-color: #f9fbf9;
   }
   
   .map-content {
@@ -668,7 +678,7 @@ section {
   /* ===== Soil Sales ===== */
 .soil-sales {
     padding: 100px 0;
-    background-color: #f9fafb; /* 薄いグレーでSERVICESと変化をつける */
+    background-color: #f7f7f6; /* 薄いグレーでSERVICESと変化をつける */
   }
   
   .soil-content {
@@ -744,10 +754,110 @@ section {
   }
   
 
+/* ===== Responsive 修正版 ===== */
+
+  /* ===== スマホ用設定 (1024px以下) ===== */
+  @media screen and (max-width: 1024px) {
+    .header { height: 70px; }
+    .header-inner { padding: 0 20px; }
+    .tel { display: none; } /* スマホではヘッダーの電話を隠す（メニュー内に入れるか、ボタンにするため） */
+  
+    /* 三本線の枠 */
+    #nav-open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      z-index: 100;
+    }
+    #nav-open span, #nav-open span::before, #nav-open span::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 25px;
+      background: #333;
+      transition: 0.3s;
+      position: absolute;
+    }
+    #nav-open span::before { bottom: 8px; }
+    #nav-open span::after { top: 8px; }
+  
+    /* メニュー本体（最初は右に隠しておく） */
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: #fff;
+      flex-direction: column;
+      padding-top: 80px;
+      transition: 0.5s;
+      z-index: 99;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+    .nav a {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+    }
+  
+    /* チェックが入ったら（三本線が押されたら）表示 */
+    #nav-input:checked ~ .nav { right: 0; }
+    #nav-input:checked ~ #nav-close {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      z-index: 98;
+    }
+    /* 三本線を「×」に変える */
+    #nav-input:checked ~ #nav-open span { background: transparent; }
+    #nav-input:checked ~ #nav-open span::before { transform: rotate(45deg); bottom: 0; }
+    #nav-input:checked ~ #nav-open span::after { transform: rotate(-45deg); top: 0; }
+  }
+    
+  /* さらに小さい画面（iPhoneなど） */
+  @media screen and (max-width: 480px) {
+    .logo a {
+      font-size: 18px;
+    }
+    .tel {
+      font-size: 16px;
+    }
+    .nav a {
+      margin: 0 5px;
+      font-size: 11px;
+    }
+  }
+
+
 
 
   /* ===== Responsive ===== */
   @media screen and (max-width: 900px) {
+      /* スマホ用の調整（崩れ防止） */
+      .header-inner {
+        padding: 0 20px;
+      }
+      .nav a {
+        margin: 0 10px;
+        font-size: 13px;
+      }
+      .tel {
+        font-size: 20px;
+      }
+
     .section-title, .about-text h2 {
       font-size: 26px;
     }
