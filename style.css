@@ -869,7 +869,7 @@ section {
     }
   
     .about-text h2, .about-text p {
-      text-align: center;
+      text-align: left;
     }
     
     .about-label {
