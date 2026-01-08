@@ -14,7 +14,7 @@
     color: #333; /* 文字が見えやすいように基本色をダークグレーに */
     background-color: #fff;
     line-height: 1.6;
-  }
+    font-family: 'Noto Sans JP', '游ゴシック体', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic Pro', "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;  }
   
   /* 共通コンテナ */
   .container, .about-inner, .services-inner, .flow-history {
