@@ -196,7 +196,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    align-items: center;
+    /* align-items: center; */
   }
   
   .about-label {
@@ -251,7 +251,11 @@ section {
     position: relative;
     z-index: 2;
     border-radius: 6px;
-    clip-path: polygon(40px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40px);
+    /* clip-path: polygon(40px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 40px); */
+  }
+  
+  .about-image1 {
+    margin-bottom: 10%;
   }
   
   /* ===== Services ===== */
@@ -345,14 +349,15 @@ section {
   /* ===== Flow ===== */
 /* ===== Flow Section (PC & Mobile 共通) ===== */
 .flow {
-    background: #3b434a;
-    color: #e5e7eb;
+    background: #ffffff;
+    /* background: #3b434a; */
+    color: #000000;
     padding: 100px 0;
   }
   .flow-title {
     font-size: 32px;
     font-weight: bold;
-    color: #fff !important; /* 強制的に白に固定 */
+    color: #000000 !important; /* 強制的に白に固定 */
     text-align: center;
     margin-bottom: 60px;
   }
@@ -414,7 +419,7 @@ section {
     background: #0f9d58;
     border-radius: 50%;
     z-index: 3;
-    border: 2px solid #3b434a;
+    /* border: 2px solid #3b434a; */
     
     /* ↓ ここからアニメーションの設定を追加 ↓ */
     transition: all 0.3s ease-out; 
@@ -444,11 +449,10 @@ section {
   
   
   
-  
   /* ===== Environmental Commitment ===== */
   .env-commitment {
     padding: 100px 0;
-    background-color: #ffffff;
+    background-color: #f9fbf9;
   }
   
   .commitment-item {
@@ -489,10 +493,101 @@ section {
     margin-bottom: 15px;
   }
   
+
+
+
+
+
+  /* ===== Soil Sales ===== */
+  .soil-sales {
+    padding: 100px 0;
+    background-color: #ffffff; /* 薄いグレーでSERVICESと変化をつける */
+  }
+  
+  .soil-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  .soil-text h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  /* テキスト横の細い緑線 */
+  .soil-text h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: #3aa66b;
+    border-radius: 2px;
+  }
+  
+  .soil-text p {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .soil-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  
+  .soil-features li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #444;
+  }
+  
+  /* チェックマークの装飾 */
+  .soil-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3aa66b;
+    font-weight: bold;
+  }
+  
+  .soil-note {
+    background: #fff;
+    padding: 15px;
+    border: 1px dashed #3aa66b;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .soil-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  
+
+
+
+
+
+
+
 /* ===== Map Section ===== */
 .map-section {
     padding: 100px 0;
-    background-color: #f9fbf9;
+    background-color: #f7f7f6;
   }
   
   .map-content {
@@ -675,84 +770,6 @@ section {
 
 
 
-  /* ===== Soil Sales ===== */
-.soil-sales {
-    padding: 100px 0;
-    background-color: #f7f7f6; /* 薄いグレーでSERVICESと変化をつける */
-  }
-  
-  .soil-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-  
-  .soil-text h3 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 15px;
-  }
-  
-  /* テキスト横の細い緑線 */
-  .soil-text h3::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 4px;
-    background: #3aa66b;
-    border-radius: 2px;
-  }
-  
-  .soil-text p {
-    line-height: 1.8;
-    color: #666;
-    margin-bottom: 30px;
-  }
-  
-  .soil-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-  }
-  
-  .soil-features li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 15px;
-    font-size: 15px;
-    color: #444;
-  }
-  
-  /* チェックマークの装飾 */
-  .soil-features li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #3aa66b;
-    font-weight: bold;
-  }
-  
-  .soil-note {
-    background: #fff;
-    padding: 15px;
-    border: 1px dashed #3aa66b;
-    border-radius: 6px;
-    font-size: 14px;
-  }
-  
-  .soil-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  }
-  
 
 /* ===== Responsive 修正版 ===== */
 
