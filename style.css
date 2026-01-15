@@ -264,6 +264,9 @@ section {
     background: #f7f7f6;
   }
   
+  .services-title{
+    margin-bottom: 5%;
+  }
   .section-sub {
     text-align: center;
     font-size: 15px;
